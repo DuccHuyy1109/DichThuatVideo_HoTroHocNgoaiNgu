@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiến trình học tập - Video Subtitle AI</title>
+    
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/sidebar.css">
+    <link rel="stylesheet" href="../../css/pages/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/progress.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar-dashboard">
+        <div class="navbar-brand">
+            <span class="navbar-title">Video Subtitle AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="../dashboard/index.html" class="btn btn-outline">← Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="../video/list.html" class="nav-item">
+                    <span class="icon">🎬</span>
+                    <span>Video của tôi</span>
+                </a>
+                <a href="../vocabulary/saved.html" class="nav-item">
+                    <span class="icon">📚</span>
+                    <span>Từ vựng đã lưu</span>
+                </a>
+                <a href="progress.html" class="nav-item active">
+                    <span class="icon">📊</span>
+                    <span>Tiến trình</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Tiến trình học tập</h1>
+            <p class="page-subtitle">Theo dõi chi tiết quá trình học của bạn</p>
+
+            <!-- Overview Stats -->
+            <div class="overview-stats">
+                <div class="stat-card-large">
+                    <div class="stat-icon-large">🎬</div>
+                    <div class="stat-info">
+                        <div class="stat-value-large" id="totalVideos">0</div>
+                        <div class="stat-label-large">Video đã xem</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card-large">
+                    <div class="stat-icon-large">⏱️</div>
+                    <div class="stat-info">
+                        <div class="stat-value-large" id="totalTime">0h 0m</div>
+                        <div class="stat-label-large">Thời gian học</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card-large">
+                    <div class="stat-icon-large">📚</div>
+                    <div class="stat-info">
+                        <div class="stat-value-large" id="totalVocab">0</div>
+                        <div class="stat-label-large">Từ vựng đã lưu</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card-large">
+                    <div class="stat-icon-large">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-value-large" id="quizScore">0%</div>
+                        <div class="stat-label-large">Điểm Quiz TB</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Chart -->
+            <div class="chart-section">
+                <h2>Hoạt động học tập 7 ngày qua</h2>
+                <div class="chart-container">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Video Progress -->
+            <div class="progress-section">
+                <h2>Tiến trình từng video</h2>
+                <div class="progress-list-detailed" id="videoProgressList">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Đang tải...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="achievements-section">
+                <h2>Thành tích</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🌟</div>
+                        <h4>Người mới</h4>
+                        <p>Hoàn thành video đầu tiên</p>
+                    </div>
+                    
+                    <div class="achievement-card locked">
+                        <div class="achievement-icon">🔥</div>
+                        <h4>Streak 7 ngày</h4>
+                        <p>Học liên tục 7 ngày</p>
+                    </div>
+                    
+                    <div class="achievement-card locked">
+                        <div class="achievement-icon">📚</div>
+                        <h4>Vocabulary Master</h4>
+                        <p>Lưu 100 từ vựng</p>
+                    </div>
+                    
+                    <div class="achievement-card locked">
+                        <div class="achievement-icon">🎯</div>
+                        <h4>Quiz Expert</h4>
+                        <p>Đạt 90% quiz accuracy</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/utils/storage.js"></script>
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/api/auth-api.js"></script>
+    <script src="../../js/api/user-api.js"></script>
+    <script src="../../js/pages/progress.js"></script>
+</body>
+</html>

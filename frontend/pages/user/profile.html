@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin cá nhân - Video Subtitle AI</title>
+    
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/sidebar.css">
+    <link rel="stylesheet" href="../../css/pages/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/profile.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar-dashboard">
+        <div class="navbar-brand">
+            <span class="navbar-title">Video Subtitle AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="../dashboard/index.html" class="btn btn-outline">← Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="../video/list.html" class="nav-item">
+                    <span class="icon">🎬</span>
+                    <span>Video của tôi</span>
+                </a>
+                <a href="profile.html" class="nav-item active">
+                    <span class="icon">👤</span>
+                    <span>Thông tin cá nhân</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Thông tin cá nhân</h1>
+            <p class="page-subtitle">Quản lý thông tin tài khoản của bạn</p>
+
+            <!-- Profile Section -->
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <span id="avatarInitials">U</span>
+                    </div>
+                    
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="username">Tên đăng nhập</label>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                class="form-input"
+                                disabled
+                            >
+                            <small class="form-hint">Không thể thay đổi tên đăng nhập</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="form-input"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Họ và tên</label>
+                            <input 
+                                type="text" 
+                                id="fullName" 
+                                class="form-input"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Ngày tham gia</label>
+                            <input 
+                                type="text" 
+                                id="joinDate" 
+                                class="form-input"
+                                disabled
+                            >
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Lưu thay đổi
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Change Password Section -->
+                <div class="profile-card">
+                    <h2>Đổi mật khẩu</h2>
+                    
+                    <form id="passwordForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="oldPassword">Mật khẩu hiện tại</label>
+                            <input 
+                                type="password" 
+                                id="oldPassword" 
+                                class="form-input"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newPassword">Mật khẩu mới</label>
+                            <input 
+                                type="password" 
+                                id="newPassword" 
+                                class="form-input"
+                                required
+                                minlength="6"
+                            >
+                            <small class="form-hint">Tối thiểu 6 ký tự, có chữ và số</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">Xác nhận mật khẩu mới</label>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                class="form-input"
+                                required
+                            >
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Đổi mật khẩu
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Account Stats -->
+                <div class="profile-card">
+                    <h2>Thống kê tài khoản</h2>
+                    
+                    <div class="stats-list">
+                        <div class="stat-row">
+                            <span class="stat-label">Số video đã upload:</span>
+                            <span class="stat-value" id="totalVideos">0</span>
+                        </div>
+                        
+                        <div class="stat-row">
+                            <span class="stat-label">Từ vựng đã lưu:</span>
+                            <span class="stat-value" id="totalVocab">0</span>
+                        </div>
+                        
+                        <div class="stat-row">
+                            <span class="stat-label">Quiz đã làm:</span>
+                            <span class="stat-value" id="totalQuiz">0</span>
+                        </div>
+                        
+                        <div class="stat-row">
+                            <span class="stat-label">Lần đăng nhập cuối:</span>
+                            <span class="stat-value" id="lastLogin">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="profile-card danger-zone">
+                    <h2>Vùng nguy hiểm</h2>
+                    <p>Các hành động sau không thể hoàn tác</p>
+                    
+                    <button class="btn btn-outline btn-danger btn-block" onclick="confirmDeleteAccount()">
+                        Xóa tài khoản
+                    </button>
+                </div>
+            </div>
+
+            <div id="message" class="message" style="display: none;"></div>
+        </main>
+    </div>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/utils/storage.js"></script>
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/api/auth-api.js"></script>
+    <script src="../../js/api/user-api.js"></script>
+    <script src="../../js/api/video-api.js"></script>
+    <script src="../../js/pages/profile.js"></script>
+</body>
+</html>

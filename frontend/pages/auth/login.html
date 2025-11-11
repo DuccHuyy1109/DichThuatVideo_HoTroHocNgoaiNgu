@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Video Subtitle AI</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/login.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <a href="../../index.html" class="back-link">← Quay lại</a>
+                <h1>Đăng nhập</h1>
+                <p>Chào mừng bạn trở lại!</p>
+            </div>
+            
+            <form id="loginForm" class="auth-form" autocomplete="off">
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập hoặc Email</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        class="form-input"
+                        placeholder="Nhập tên đăng nhập hoặc email"
+                        autocomplete="off"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-input"
+                        placeholder="Nhập mật khẩu"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember">
+                        <span>Ghi nhớ đăng nhập</span>
+                    </label>
+                    <a href="#" class="forgot-password">Quên mật khẩu?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    Đăng nhập
+                </button>
+                
+                <div class="form-divider">
+                    <span>hoặc</span>
+                </div>
+                
+                <p class="auth-switch">
+                    Chưa có tài khoản? 
+                    <a href="register.html">Đăng ký ngay</a>
+                </p>
+            </form>
+            
+            <div id="message" class="message" style="display: none;"></div>
+        </div>
+        
+        <div class="auth-illustration">
+            <div class="illustration-content">
+                <h2>Học ngoại ngữ thông minh với AI</h2>
+                <p>Tự động tạo phụ đề, trích xuất từ vựng và quiz cho mọi video</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../../js/config.js"></script>
+    <script src="../../js/utils/storage.js"></script>
+    <script src="../../js/api/auth-api.js"></script>
+    <script src="../../js/pages/login.js"></script>
+</body>
+</html>

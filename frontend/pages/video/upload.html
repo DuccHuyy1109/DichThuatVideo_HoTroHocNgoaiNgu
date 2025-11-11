@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Video - Video Subtitle AI</title>
+    
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/sidebar.css">
+    <link rel="stylesheet" href="../../css/pages/upload.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar-dashboard">
+        <div class="navbar-brand">
+            <span class="navbar-title">Video Subtitle AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="../dashboard/index.html" class="btn btn-outline">← Về Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="upload.html" class="nav-item active">
+                    <span class="icon">📤</span>
+                    <span>Upload Video</span>
+                </a>
+                <a href="list.html" class="nav-item">
+                    <span class="icon">🎬</span>
+                    <span>Video của tôi</span>
+                </a>
+                <a href="../vocabulary/saved.html" class="nav-item">
+                    <span class="icon">📚</span>
+                    <span>Từ vựng đã lưu</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Upload Video</h1>
+            <p class="page-subtitle">Tải lên video để bắt đầu học ngoại ngữ với AI</p>
+
+            <!-- Upload Form -->
+            <div class="upload-container">
+                <div class="upload-box" id="uploadBox">
+                    <div class="upload-icon">📤</div>
+                    <h3>Kéo thả video vào đây</h3>
+                    <p>hoặc</p>
+                    <button type="button" class="btn btn-primary" onclick="document.getElementById('videoFile').click()">
+                        Chọn file
+                    </button>
+                    <input type="file" id="videoFile" accept="video/*" style="display: none;">
+                    <p class="upload-hint">Hỗ trợ: MP4, AVI, MOV, MKV (Tối đa 500MB)</p>
+                </div>
+
+                <!-- Video Info Form -->
+                <form id="uploadForm" class="upload-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="videoTitle">Tiêu đề video *</label>
+                        <input 
+                            type="text" 
+                            id="videoTitle" 
+                            class="form-input"
+                            placeholder="Nhập tiêu đề cho video"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sourceLanguage">Ngôn ngữ nguồn</label>
+                        <select id="sourceLanguage" class="form-input">
+                            <option value="auto">Tự động phát hiện</option>
+                            <option value="en">English</option>
+                            <option value="ja">日本語</option>
+                            <option value="ko">한국어</option>
+                            <option value="zh">中文</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                            <option value="es">Español</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="targetLanguage">Dịch sang</label>
+                        <select id="targetLanguage" class="form-input">
+                            <option value="vi" selected>Tiếng Việt</option>
+                            <option value="en">English</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+
+                    <!-- File Preview -->
+                    <div class="file-preview" id="filePreview">
+                        <div class="file-info">
+                            <div class="file-icon">🎬</div>
+                            <div class="file-details">
+                                <div class="file-name" id="fileName"></div>
+                                <div class="file-size" id="fileSize"></div>
+                            </div>
+                            <button type="button" class="btn-remove" onclick="removeFile()">✕</button>
+                        </div>
+                        <div class="upload-progress" id="uploadProgress" style="display: none;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span id="progressPercent">0%</span>
+                                <span id="progressStatus">Đang upload...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="resetForm()">
+                            Hủy
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            Tải lên và xử lý
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h3>Upload thành công!</h3>
+                    <p>Video đang được xử lý. Bạn có thể xem tiến trình trong danh sách video.</p>
+                    <div class="success-actions">
+                        <a href="list.html" class="btn btn-primary">Xem danh sách video</a>
+                        <button type="button" class="btn btn-outline" onclick="uploadAnother()">
+                            Upload video khác
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions">
+                <h2>Hướng dẫn sử dụng</h2>
+                <div class="steps-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Chọn video</h4>
+                            <p>Upload video từ máy tính hoặc kéo thả trực tiếp</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Cấu hình</h4>
+                            <p>Nhập tiêu đề và chọn ngôn ngữ nguồn/đích</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Xử lý</h4>
+                            <p>AI sẽ tự động tạo phụ đề, dịch và trích xuất từ vựng</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Học tập</h4>
+                            <p>Xem video với phụ đề song ngữ và làm quiz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/utils/storage.js"></script>
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/api/auth-api.js"></script>
+    <script src="../../js/api/video-api.js"></script>
+    <script src="../../js/pages/upload.js"></script>
+</body>
+</html>

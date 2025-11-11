@@ -1,0 +1,68 @@
+# Backend Requirements - Python 3.11.9
+
+# Web Framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+Flask-JWT-Extended==4.6.0
+Werkzeug==3.0.1
+
+# Database
+pyodbc==5.0.1
+SQLAlchemy==2.0.23
+
+# AI/ML - Speech to Text
+openai-whisper==20231117
+faster-whisper==0.10.0
+torch==2.1.2
+torchaudio==2.1.2
+
+# OpenAI GPT-4 / GPT-4o
+openai==1.42.0
+
+# Video/Audio Processing
+moviepy==2.1.1
+pydub==0.25.1
+ffmpeg-python==0.2.0
+
+# Subtitle Processing
+pysrt==1.1.2
+webvtt-py==0.4.6
+
+# Language Detection
+langdetect==1.0.9
+pycountry==23.12.11
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+Pillow==10.1.0
+
+# Validation
+email-validator==2.1.0
+python-multipart==0.0.6
+
+# Security
+bcrypt==4.1.2
+cryptography==41.0.7
+
+# File handling
+python-magic==0.4.27
+
+# Date/Time
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Progress tracking
+tqdm==4.66.1
+
+# JSON handling
+ujson==5.9.0
+
+# HTTP client
+httpx==0.25.2
+
+# Development / Testing
+pytest==7.4.3
+pytest-flask==1.3.0
+python-json-logger==2.0.7
+av==11.0.0

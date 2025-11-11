@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hệ thống trích xuất phụ đề và dịch thuật video tự động">
+    <title>Video Subtitle Translation - Trang chủ</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/notification.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="assets/images/logo.png" alt="Logo" class="navbar-logo">
+                <span class="navbar-title">Video Subtitle AI</span>
+            </div>
+            
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="#features" class="navbar-link">Tính năng</a>
+                <a href="#how-it-works" class="navbar-link">Cách hoạt động</a>
+                <a href="#about" class="navbar-link">Giới thiệu</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="pages/auth/login.html" class="btn btn-outline">Đăng nhập</a>
+                <a href="pages/auth/register.html" class="btn btn-primary">Đăng ký</a>
+            </div>
+            
+            <button class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Học ngoại ngữ qua video<br>
+                    với <span class="text-gradient">AI</span>
+                </h1>
+                <p class="hero-description">
+                    Tự động tạo phụ đề song ngữ, trích xuất từ vựng và quiz cho mọi video. 
+                    Học ngoại ngữ thông minh hơn với công nghệ AI.
+                </p>
+                <div class="hero-actions">
+                    <a href="pages/auth/register.html" class="btn btn-primary btn-lg">
+                        Bắt đầu ngay - Miễn phí
+                    </a>
+                    <a href="#how-it-works" class="btn btn-outline btn-lg">
+                        Xem demo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="video-preview">
+                    <div class="video-placeholder">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 3l14 9-14 9V3z"/>
+                        </svg>
+                        <p>Video demo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Tính năng nổi bật</h2>
+            <p class="section-subtitle">Công nghệ AI tiên tiến giúp bạn học ngoại ngữ hiệu quả</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Tự động tạo phụ đề</h3>
+                    <p>AI nhận diện giọng nói chính xác, tự động tạo phụ đề song ngữ với timestamp đồng bộ</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Dịch thông minh</h3>
+                    <p>GPT-4 dịch có ngữ cảnh, tự nhiên và chính xác cho nhiều ngôn ngữ</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Trích xuất từ vựng</h3>
+                    <p>AI tự động tìm từ vựng quan trọng, kèm nghĩa và ví dụ</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Quiz tự động</h3>
+                    <p>Tạo câu hỏi kiểm tra từ nội dung video giúp ghi nhớ lâu hơn</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Theo dõi tiến trình</h3>
+                    <p>Thống kê chi tiết quá trình học, từ vựng đã thuộc, điểm quiz</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Xử lý nhanh</h3>
+                    <p>Công nghệ tối ưu, xử lý video nhanh chóng với độ chính xác cao</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Cách hoạt động</h2>
+            <p class="section-subtitle">Chỉ 3 bước đơn giản</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload video</h3>
+                    <p>Tải lên video hoặc dán link YouTube, TED Talks, Coursera</p>
+                </div>
+                
+                <div class="step-arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI xử lý</h3>
+                    <p>Hệ thống tự động tạo phụ đề, dịch và trích xuất từ vựng</p>
+                </div>
+                
+                <div class="step-arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Học và luyện tập</h3>
+                    <p>Xem video với phụ đề song ngữ, lưu từ vựng và làm quiz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10M+</h3>
+                    <p>Người học ngoại ngữ tại VN</p>
+                </div>
+                <div class="stat-item">
+                    <h3>70%</h3>
+                    <p>Thích học qua video</p>
+                </div>
+                <div class="stat-item">
+                    <h3>8+</h3>
+                    <p>Ngôn ngữ hỗ trợ</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99%</h3>
+                    <p>Độ chính xác AI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Sẵn sàng bắt đầu?</h2>
+            <p>Đăng ký ngay để trải nghiệm học ngoại ngữ thông minh với AI</p>
+            <a href="pages/auth/register.html" class="btn btn-primary btn-lg">
+                Đăng ký miễn phí
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Video Subtitle Translation System. Đồ án tốt nghiệp.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

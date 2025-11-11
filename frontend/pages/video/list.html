@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Video - Video Subtitle AI</title>
+    
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/sidebar.css">
+    <link rel="stylesheet" href="../../css/pages/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/video-list.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar-dashboard">
+        <div class="navbar-brand">
+            <span class="navbar-title">Video Subtitle AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="../dashboard/index.html" class="btn btn-outline">← Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="upload.html" class="nav-item">
+                    <span class="icon">📤</span>
+                    <span>Upload Video</span>
+                </a>
+                <a href="list.html" class="nav-item active">
+                    <span class="icon">🎬</span>
+                    <span>Video của tôi</span>
+                </a>
+                <a href="../vocabulary/saved.html" class="nav-item">
+                    <span class="icon">📚</span>
+                    <span>Từ vựng đã lưu</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Video của tôi</h1>
+                    <p class="page-subtitle">Quản lý và xem các video đã upload</p>
+                </div>
+                <a href="upload.html" class="btn btn-primary">+ Upload mới</a>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label>Trạng thái:</label>
+                    <select id="statusFilter" class="form-input">
+                        <option value="">Tất cả</option>
+                        <option value="pending">Chờ xử lý</option>
+                        <option value="processing">Đang xử lý</option>
+                        <option value="completed">Hoàn thành</option>
+                        <option value="failed">Thất bại</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Sắp xếp:</label>
+                    <select id="sortFilter" class="form-input">
+                        <option value="newest">Mới nhất</option>
+                        <option value="oldest">Cũ nhất</option>
+                        <option value="title">Theo tên</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Videos List -->
+            <div class="videos-container" id="videosContainer">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Đang tải...</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination" style="display: none;">
+                <button class="btn btn-outline" id="prevBtn">← Trước</button>
+                <span class="page-info">Trang <span id="currentPage">1</span> / <span id="totalPages">1</span></span>
+                <button class="btn btn-outline" id="nextBtn">Sau →</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal xác nhận xóa -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <h3>Xác nhận xóa</h3>
+            <p>Bạn có chắc muốn xóa video này? Hành động không thể hoàn tác.</p>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="closeDeleteModal()">Hủy</button>
+                <button class="btn btn-primary btn-danger" id="confirmDeleteBtn">Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/utils/storage.js"></script>
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/api/auth-api.js"></script>
+    <script src="../../js/api/video-api.js"></script>
+    <script src="../../js/pages/video-list.js"></script>
+</body>
+</html>

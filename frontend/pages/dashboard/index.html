@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Video Subtitle AI</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/sidebar.css">
+    <link rel="stylesheet" href="../../css/pages/dashboard.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar-dashboard">
+        <div class="navbar-brand">
+            <span class="navbar-title">Video Subtitle AI</span>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm video..." id="searchInput">
+            </div>
+            
+            <div class="user-menu">
+                <button class="user-avatar" id="userMenuBtn">
+                    <span id="userInitials">U</span>
+                </button>
+                <div class="dropdown-menu" id="userDropdown">
+                    <a href="../user/profile.html">Thông tin cá nhân</a>
+                    <a href="../user/progress.html">Tiến trình học</a>
+                    <a href="#" id="logoutBtn">Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <span class="icon">🏠</span>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="../video/upload.html" class="nav-item">
+                    <span class="icon">📤</span>
+                    <span>Upload Video</span>
+                </a>
+                <a href="../video/list.html" class="nav-item">
+                    <span class="icon">🎬</span>
+                    <span>Video của tôi</span>
+                </a>
+                <a href="../vocabulary/saved.html" class="nav-item">
+                    <span class="icon">📚</span>
+                    <span>Từ vựng đã lưu</span>
+                </a>
+                <a href="../quiz/index.html" class="nav-item">
+                    <span class="icon">✅</span>
+                    <span>Quiz</span>
+                </a>
+                <a href="../user/progress.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    <span>Tiến trình</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h1>Chào mừng, <span id="userName">User</span>! 👋</h1>
+                <p>Sẵn sàng học ngoại ngữ hôm nay chưa?</p>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <a href="../video/upload.html" class="action-card primary">
+                    <div class="action-icon">📤</div>
+                    <h3>Upload Video</h3>
+                    <p>Tải lên video mới để bắt đầu học</p>
+                </a>
+                
+                <a href="../video/list.html" class="action-card">
+                    <div class="action-icon">🎬</div>
+                    <h3>Video của tôi</h3>
+                    <p>Xem danh sách video đã upload</p>
+                </a>
+                
+                <a href="../vocabulary/saved.html" class="action-card">
+                    <div class="action-icon">📚</div>
+                    <h3>Ôn từ vựng</h3>
+                    <p>Ôn lại từ vựng đã lưu</p>
+                </a>
+            </section>
+
+            <!-- Statistics -->
+            <section class="statistics">
+                <h2>Thống kê học tập</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🎬</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalVideos">0</div>
+                            <div class="stat-label">Video đã xử lý</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalVocab">0</div>
+                            <div class="stat-label">Từ vựng đã lưu</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="quizAccuracy">0%</div>
+                            <div class="stat-label">Độ chính xác Quiz</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="studyTime">0h</div>
+                            <div class="stat-label">Thời gian học</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Videos -->
+            <section class="recent-videos">
+                <div class="section-header">
+                    <h2>Video gần đây</h2>
+                    <a href="../video/list.html" class="view-all">Xem tất cả →</a>
+                </div>
+                
+                <div class="videos-grid" id="recentVideos">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Đang tải...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Progress -->
+            <section class="learning-progress">
+                <h2>Tiến trình học tập</h2>
+                <div class="progress-list" id="progressList">
+                    <div class="empty-state">
+                        <p>Chưa có video nào. Hãy upload video đầu tiên!</p>
+                        <a href="../video/upload.html" class="btn btn-primary">Upload ngay</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../../js/config.js"></script>
+    <script src="../../js/utils/storage.js"></script>
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/api/auth-api.js"></script>
+    <script src="../../js/api/video-api.js"></script>
+    <script src="../../js/api/user-api.js"></script>
+    <script src="../../js/components/navbar.js"></script>
+    <script src="../../js/pages/dashboard.js"></script>
+</body>
+</html>

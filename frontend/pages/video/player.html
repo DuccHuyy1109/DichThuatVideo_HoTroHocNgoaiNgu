@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem Video - Video Subtitle AI</title>
+    
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/pages/video-player.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar-dashboard">
+        <div class="navbar-brand">
+            <span class="navbar-title">Video Subtitle AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="list.html" class="btn btn-outline">← Danh sách video</a>
+        </div>
+    </nav>
+
+    <div class="player-container">
+        <!-- Video Player Section -->
+        <div class="player-section">
+            <div class="video-wrapper" id="videoWrapper">
+                <video id="videoPlayer" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Subtitle Overlay -->
+                <div class="subtitle-overlay" id="subtitleOverlay">
+                    <div class="subtitle-text original" id="subtitleOriginal"></div>
+                    <div class="subtitle-text translation" id="subtitleTranslation"></div>
+                </div>
+            </div>
+            
+            <!-- Player Controls -->
+            <div class="player-controls">
+                <div class="control-group">
+                    <label>Tốc độ:</label>
+                    <select id="playbackRate" class="control-select">
+                        <option value="0.5">0.5x</option>
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="showOriginal" checked>
+                        Hiển thị tiếng gốc
+                    </label>
+                </div>
+                
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="showTranslation" checked>
+                        Hiển thị tiếng Việt
+                    </label>
+                </div>
+                
+                <button class="btn btn-outline" onclick="downloadSubtitle()">
+                    📥 Tải phụ đề
+                </button>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="player-sidebar">
+            <!-- Video Info -->
+            <div class="info-section">
+                <h2 id="videoTitle">Loading...</h2>
+                <div class="video-meta">
+                    <span id="videoDuration">--:--</span>
+                    <span id="videoLanguage">--</span>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="vocabulary">Từ vựng</button>
+                <button class="tab-btn" data-tab="quiz">Quiz</button>
+                <button class="tab-btn" data-tab="transcript">Transcript</button>
+            </div>
+
+            <!-- Tab Content: Vocabulary -->
+            <div class="tab-content active" id="vocabulary-tab">
+                <div class="vocabulary-list" id="vocabularyList">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Đang tải từ vựng...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Quiz -->
+            <div class="tab-content" id="quiz-tab">
+                <div class="quiz-container" id="quizContainer">
+                    <div class="empty-state">
+                        <p>Chưa có quiz cho video này</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Transcript -->
+            <div class="tab-content" id="transcript-tab">
+                <div class="transcript-list" id="transcriptList">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Đang tải transcript...</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Vocabulary Detail Modal -->
+    <div class="modal" id="vocabModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeVocabModal()">✕</button>
+            <h3 id="vocabWord"></h3>
+            <div id="vocabDetails"></div>
+            <button class="btn btn-primary" id="saveVocabBtn">💾 Lưu từ vựng</button>
+        </div>
+    </div>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/utils/storage.js"></script>
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/api/auth-api.js"></script>
+    <script src="../../js/api/video-api.js"></script>
+    <script src="../../js/pages/video-player.js"></script>
+</body>
+</html>
