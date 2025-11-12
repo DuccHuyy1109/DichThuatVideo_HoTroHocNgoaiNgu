@@ -4,6 +4,7 @@
 
 <p align="center">
   <img src="images/logoDaiNam.png" alt="DaiNam University Logo" width="200"/>
+  <img src="images/LogoAIoTLab.png" alt="AIoTLab Logo" width="170"/>
 </p>
 
 [![Made by Chu Van Huy](https://img.shields.io/badge/Made%20by-Chu%20Van%20Huy-blue?style=for-the-badge)](https://github.com/chuvanhuy)
